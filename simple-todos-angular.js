@@ -19,6 +19,12 @@ if (Meteor.isClient) {
         );
       };
 
+      $scope.$watch('hideCompleted', function() {
+        if ($scope.hideCompleted)
+          $scope.query = {checked: {$ne: true}};
+        else
+          $scope.query = {};
+      });
 
     }]);
 }
