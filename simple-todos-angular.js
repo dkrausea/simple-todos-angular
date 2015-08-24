@@ -9,7 +9,7 @@ if (Meteor.isClient) {
     function ($scope, $meteor) {
 
       $scope.tasks = $meteor.collection( function() {
-        return Tasks.find($scope.query, { sort: { createdAt: -1 }})
+        return Tasks.find($scope.getReactive('query'), { sort: { createdAt: -1 }})
       });
 
       $scope.addTask = function (newTask) {
